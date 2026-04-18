@@ -179,13 +179,13 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
           <Ionicons name="home" size={18} color="#D58A11" />
           <View style={styles.activeIndicator} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.bottomItem}>
+        <TouchableOpacity style={styles.bottomItem} onPress={() => navigation.navigate('SavedJobs')}>
           <Ionicons name="bookmark-outline" size={18} color="#26264A" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.floatingChat}>
+        <TouchableOpacity style={styles.floatingChat} onPress={() => navigation.navigate('Message')}>
           <Ionicons name="chatbubble-outline" size={26} color="#1D1E3A" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.bottomItem}>
+        <TouchableOpacity style={styles.bottomItem} onPress={() => navigation.navigate('Post')}>
           <MaterialCommunityIcons name="account-group-outline" size={18} color="#26264A" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.bottomItem}>
