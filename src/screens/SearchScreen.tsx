@@ -204,6 +204,7 @@ export default function SearchScreen({ navigation }: SearchScreenProps) {
   const [maxSalary, setMaxSalary] = useState(100);
   const [showFilter, setShowFilter] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [showCategoryModal, setShowCategoryModal] = useState(false);
 
   const suggestedItems = useMemo(() => {
     if (!query.trim()) {
@@ -368,10 +369,14 @@ export default function SearchScreen({ navigation }: SearchScreenProps) {
                 </View>
 
                 <Text style={styles.filterLabel}>Danh mục</Text>
-                <View style={styles.dropdownRow}>
-                  <Text style={styles.dropdownText}>{selectedCategory ?? 'Thiết kế'}</Text>
-                  <Ionicons name="chevron-up" size={13} color="#7A7F9B" />
-                </View>
+                <TouchableOpacity 
+                  style={styles.dropdownRow}
+                  onPress={() => setShowCategoryModal(true)}
+                  activeOpacity={0.85}
+                >
+                  <Text style={styles.dropdownText}>{selectedCategory ?? 'Chọn danh mục'}</Text>
+                  <Ionicons name="chevron-down" size={13} color="#7A7F9B" />
+                </TouchableOpacity>
 
                 <Text style={styles.filterLabel}>Danh mục phụ</Text>
                 <View style={styles.dropdownRow}><Text style={styles.dropdownText}>UI/UX Design</Text></View>
@@ -526,6 +531,62 @@ export default function SearchScreen({ navigation }: SearchScreenProps) {
                 </View>
               </>
             )}
+          </Pressable>
+        </Pressable>
+      </Modal>
+
+      <Modal visible={showCategoryModal} transparent animationType="slide" onRequestClose={() => setShowCategoryModal(false)}>
+        <Pressable style={styles.modalBackdrop} onPress={() => setShowCategoryModal(false)}>
+          <Pressable style={styles.categoryModalPanel}>
+            <View style={styles.categoryModalHeader}>
+              <TouchableOpacity onPress={() => setShowCategoryModal(false)} style={styles.topIconButton} activeOpacity={0.85}>
+                <Ionicons name="arrow-back" size={18} color="#484C73" />
+              </TouchableOpacity>
+              <Text style={styles.filterTitle}>Chọn danh mục</Text>
+              <View style={{ width: 30 }} />
+            </View>
+
+            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.categoryModalContent}>
+              {CATEGORY_ITEMS.map((item) => {
+                const selected = selectedCategory === item.id;
+                return (
+                  <TouchableOpacity
+                    key={item.id}
+                    style={styles.categoryModalOption}
+                    onPress={() => {
+                      setSelectedCategory(selected ? null : item.id);
+                      setShowCategoryModal(false);
+                    }}
+                    activeOpacity={0.85}
+                  >
+                    <View style={[styles.categoryModalIconCircle, selected ? styles.categoryModalIconCircleActive : null]}>
+                      <MaterialCommunityIcons
+                        name={item.icon}
+                        size={18}
+                        color={selected ? '#FFFFFF' : '#F2A142'}
+                      />
+                    </View>
+                    <View style={styles.categoryModalInfo}>
+                      <Text style={[styles.categoryModalName, selected ? styles.categoryModalNameActive : null]}>{item.id}</Text>
+                      <Text style={styles.categoryModalCount}>{item.jobs} công việc</Text>
+                    </View>
+                    <Ionicons 
+                      name={selected ? 'checkbox' : 'square-outline'} 
+                      size={18} 
+                      color={selected ? '#F2A142' : '#8085A2'} 
+                    />
+                  </TouchableOpacity>
+                );
+              })}
+            </ScrollView>
+
+            <TouchableOpacity 
+              style={styles.categoryModalButton} 
+              onPress={() => setShowCategoryModal(false)}
+              activeOpacity={0.88}
+            >
+              <Text style={styles.categoryModalButtonText}>XONG</Text>
+            </TouchableOpacity>
           </Pressable>
         </Pressable>
       </Modal>
@@ -913,5 +974,75 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     letterSpacing: 0.6,
+  },
+  categoryModalPanel: {
+    backgroundColor: '#F4F5F8',
+    borderTopLeftRadius: 18,
+    borderTopRightRadius: 18,
+    paddingHorizontal: 16,
+    paddingTop: 10,
+    paddingBottom: 16,
+    maxHeight: '80%',
+  },
+  categoryModalHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 8,
+  },
+  categoryModalContent: {
+    paddingBottom: 12,
+  },
+  categoryModalOption: {
+    minHeight: 60,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ECEEF4',
+    gap: 12,
+  },
+  categoryModalIconCircle: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: '#FFF5E9',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  categoryModalIconCircleActive: {
+    backgroundColor: '#F2A142',
+  },
+  categoryModalInfo: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  categoryModalName: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#2C3052',
+  },
+  categoryModalNameActive: {
+    color: '#F2A142',
+  },
+  categoryModalCount: {
+    fontSize: 10,
+    color: '#B2B6C8',
+    marginTop: 2,
+  },
+  categoryModalButton: {
+    marginTop: 12,
+    minHeight: 40,
+    borderRadius: 6,
+    backgroundColor: '#2F9A3A',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  categoryModalButtonText: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '700',
+    letterSpacing: 0.4,
   },
 });
