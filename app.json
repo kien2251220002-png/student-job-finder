@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "SJOB - Student Job Finder",
+    "slug": "sjob-mobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {},
+    "web": {}
+  }
+}
