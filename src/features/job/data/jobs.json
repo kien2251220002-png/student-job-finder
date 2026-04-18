@@ -1,0 +1,93 @@
+[
+  {
+    "id": "1",
+    "title": "Backend Developer",
+    "company": "FPT Corporation",
+    "logoUrl": "student-job-finder-main/src/picture/Ellipse 97.png",
+    "salary": "20TR VNĐ",
+    "location": "Da Nang, VietNam",
+    "jobType": "Full-Time",
+    "category": "Development",
+    "description": "Xây dựng các API, bảo trì hệ thống backend và đảm bảo tính ổn định của dịch vụ.",
+    "requirements": [
+      "Có kinh nghiệm với Node.js hoặc Python.",
+      "Hiểu biết về cơ sở dữ liệu SQL và NoSQL.",
+      "Kỹ năng giải quyết vấn đề và làm việc nhóm tốt."
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Product Designer",
+    "company": "Google Inc.",
+    "salary": "25TR VNĐ",
+    "location": "HCMC, VietNam",
+    "jobType": "Full-Time",
+    "category": "Design",
+    "description": "Thiết kế trải nghiệm người dùng cho sản phẩm di động và web, từ ý tưởng đến prototype.",
+    "requirements": [
+      "Có portfolio thiết kế sản phẩm rõ ràng.",
+      "Thành thạo Figma hoặc Sketch.",
+      "Am hiểu nguyên tắc UI/UX hiện đại." 
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Receptionist",
+    "company": "The Herriott Hotel & Suite",
+    "salary": "13TR VNĐ",
+    "location": "Da Nang, VietNam",
+    "jobType": "Full-Time",
+    "category": "Hospitality",
+    "description": "Đón tiếp khách, xử lý đặt phòng và hỗ trợ thông tin cho khách đến khách sạn.",
+    "requirements": [
+      "Giao tiếp tiếng Anh cơ bản.",
+      "Thái độ chuyên nghiệp và thân thiện.",
+      "Có khả năng quản lý thời gian tốt."
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Pizza Staff",
+    "company": "Cardi Pizzeria",
+    "salary": "20k VNĐ",
+    "location": "Da Nang, VietNam",
+    "jobType": "Part-Time",
+    "category": "Food & Beverage",
+    "description": "Phục vụ khách hàng, chuẩn bị nguyên liệu và duy trì khu vực làm việc sạch sẽ.",
+    "requirements": [
+      "Làm việc theo ca linh hoạt.",
+      "Thân thiện và nhanh nhẹn.",
+      "Không yêu cầu kinh nghiệm, sẽ được đào tạo."
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Marketing Intern",
+    "company": "Startup Hub",
+    "salary": "10TR VNĐ",
+    "location": "Hanoi, VietNam",
+    "jobType": "Internship",
+    "category": "Marketing",
+    "description": "Hỗ trợ chiến dịch truyền thông, quản lý nội dung mạng xã hội và phân tích báo cáo performance.",
+    "requirements": [
+      "Yêu thích marketing và sáng tạo nội dung.",
+      "Hiểu biết cơ bản về digital marketing.",
+      "Sẵn sàng học hỏi và chủ động."
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Data Analyst",
+    "company": "Smart Analytics",
+    "salary": "22TR VNĐ",
+    "location": "Ho Chi Minh, VietNam",
+    "jobType": "Full-Time",
+    "category": "Data",
+    "description": "Phân tích dữ liệu, xây dựng báo cáo và đưa ra insight để hỗ trợ quyết định kinh doanh.",
+    "requirements": [
+      "Kỹ năng Excel, SQL và Power BI.",
+      "Tư duy logic và phân tích tốt.",
+      "Ưu tiên ứng viên đã từng làm việc với dữ liệu lớn."
+    ]
+  }
+]
